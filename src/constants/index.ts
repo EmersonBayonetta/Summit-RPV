@@ -102,7 +102,9 @@ export const PRIORITY_FEATURES: Record<DisabilityType, AccessibilityFeatureId[]>
   idoso: ["corrimao", "elevador", "banheiroAdaptado", "vagaEspecial"],
 };
 
-export const MAP_CENTER: [number, number] = [-23.5558, -46.6396];
+/** Centro de Cataguases - MG (Praça Santa Rita). */
+export const MAP_CENTER: [number, number] = [-21.3892, -42.6969];
+export const MAP_CITY = "Cataguases - MG";
 
 export const STORAGE_KEYS = {
   users: "accessmap:users",
