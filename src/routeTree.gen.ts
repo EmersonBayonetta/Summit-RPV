@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as FavoritosRouteImport } from './routes/favoritos'
+import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MapaRouteImport } from './routes/mapa'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +26,74 @@ const CadastroRoute = CadastroRouteImport.update({
   path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritosRoute = FavoritosRouteImport.update({
+  id: '/favoritos',
+  path: '/favoritos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InicioRoute = InicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
   '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
   '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
   '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cadastro' | '/login'
+  fullPaths: '/' | '/cadastro' | '/favoritos' | '/inicio' | '/login' | '/mapa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cadastro' | '/login'
-  id: '__root__' | '/' | '/cadastro' | '/login'
+  to: '/' | '/cadastro' | '/favoritos' | '/inicio' | '/login' | '/mapa'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/favoritos'
+    | '/inicio'
+    | '/login'
+    | '/mapa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CadastroRoute: typeof CadastroRoute
+  FavoritosRoute: typeof FavoritosRoute
+  InicioRoute: typeof InicioRoute
   LoginRoute: typeof LoginRoute
+  MapaRoute: typeof MapaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +112,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favoritos': {
+      id: '/favoritos'
+      path: '/favoritos'
+      fullPath: '/favoritos'
+      preLoaderRoute: typeof FavoritosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inicio': {
+      id: '/inicio'
+      path: '/inicio'
+      fullPath: '/inicio'
+      preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +146,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CadastroRoute: CadastroRoute,
+  FavoritosRoute: FavoritosRoute,
+  InicioRoute: InicioRoute,
   LoginRoute: LoginRoute,
+  MapaRoute: MapaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
