@@ -112,5 +112,5 @@ export const STORAGE_KEYS = {
   favorites: "accessmap:favorites",
   reviews: "accessmap:reviews",
   settings: "accessmap:settings",
-  places: "accessmap:places",
+  places: "accessmap:places:cataguases",
 } as const;
