@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
+import { Route as FavoritosRouteImport } from './routes/favoritos'
+import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as LocalPlaceIdRouteImport } from './routes/local.$placeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritosRoute = FavoritosRouteImport.update({
+  id: '/favoritos',
+  path: '/favoritos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InicioRoute = InicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocalPlaceIdRoute = LocalPlaceIdRouteImport.update({
+  id: '/local/$placeId',
+  path: '/local/$placeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
+  '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
+  '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
+  '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
+  '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/favoritos': typeof FavoritosRoute
+  '/inicio': typeof InicioRoute
+  '/login': typeof LoginRoute
+  '/mapa': typeof MapaRoute
+  '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/favoritos'
+    | '/inicio'
+    | '/login'
+    | '/mapa'
+    | '/perfil'
+    | '/local/$placeId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/favoritos'
+    | '/inicio'
+    | '/login'
+    | '/mapa'
+    | '/perfil'
+    | '/local/$placeId'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/configuracoes'
+    | '/favoritos'
+    | '/inicio'
+    | '/login'
+    | '/mapa'
+    | '/perfil'
+    | '/local/$placeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CadastroRoute: typeof CadastroRoute
+  ConfiguracoesRoute: typeof ConfiguracoesRoute
+  FavoritosRoute: typeof FavoritosRoute
+  InicioRoute: typeof InicioRoute
+  LoginRoute: typeof LoginRoute
+  MapaRoute: typeof MapaRoute
+  PerfilRoute: typeof PerfilRoute
+  LocalPlaceIdRoute: typeof LocalPlaceIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +156,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configuracoes': {
+      id: '/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favoritos': {
+      id: '/favoritos'
+      path: '/favoritos'
+      fullPath: '/favoritos'
+      preLoaderRoute: typeof FavoritosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inicio': {
+      id: '/inicio'
+      path: '/inicio'
+      fullPath: '/inicio'
+      preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/local/$placeId': {
+      id: '/local/$placeId'
+      path: '/local/$placeId'
+      fullPath: '/local/$placeId'
+      preLoaderRoute: typeof LocalPlaceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CadastroRoute: CadastroRoute,
+  ConfiguracoesRoute: ConfiguracoesRoute,
+  FavoritosRoute: FavoritosRoute,
+  InicioRoute: InicioRoute,
+  LoginRoute: LoginRoute,
+  MapaRoute: MapaRoute,
+  PerfilRoute: PerfilRoute,
+  LocalPlaceIdRoute: LocalPlaceIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
