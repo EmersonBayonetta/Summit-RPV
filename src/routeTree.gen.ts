@@ -17,6 +17,7 @@ import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as LocalPlaceIdRouteImport } from './routes/local.$placeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const PerfilRoute = PerfilRouteImport.update({
   path: '/perfil',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocalPlaceIdRoute = LocalPlaceIdRouteImport.update({
+  id: '/local/$placeId',
+  path: '/local/$placeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/mapa': typeof MapaRoute
   '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/mapa': typeof MapaRoute
   '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/mapa': typeof MapaRoute
   '/perfil': typeof PerfilRoute
+  '/local/$placeId': typeof LocalPlaceIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mapa'
     | '/perfil'
+    | '/local/$placeId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mapa'
     | '/perfil'
+    | '/local/$placeId'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mapa'
     | '/perfil'
+    | '/local/$placeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MapaRoute: typeof MapaRoute
   PerfilRoute: typeof PerfilRoute
+  LocalPlaceIdRoute: typeof LocalPlaceIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PerfilRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/local/$placeId': {
+      id: '/local/$placeId'
+      path: '/local/$placeId'
+      fullPath: '/local/$placeId'
+      preLoaderRoute: typeof LocalPlaceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MapaRoute: MapaRoute,
   PerfilRoute: PerfilRoute,
+  LocalPlaceIdRoute: LocalPlaceIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
